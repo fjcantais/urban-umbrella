@@ -25,53 +25,6 @@
         <script src="app/assets/uikit/js/components/parallax.minfd94.js?v=d1d4"></script>
         <script src="packages/pagekit/theme-one/js/themefd94.js?v=d1d4"></script>
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTYvvPbW5ChrttYiS_Syqf2y0PCxBRgVs"></script>
-		<script type="text/javascript">
-function GoogleMap(){
- 
-this.initialize = function(){
-var map = showMap();
-addMarkersToMap(map);
-}
- 
- var showMap = function(){
-var mapOptions = {
-zoom: 4,
-center: new google.maps.LatLng(-33, 151),
-mapTypeId: google.maps.MapTypeId.ROADMAP
-}
- 
-var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
- 
-return map;
-}
-}
-function onDeviceReady(){
-    var map = new GoogleMap();
-    map.initialize();
-}
- 
-var addMarkersToMap = function(map){
-var mapBounds = new google.maps.LatLngBounds();
-var latitudeAndLongitudeOne = new google.maps.LatLng('-33.890542','151.274856');
- 
-var markerOne = new google.maps.Marker({
-position: latitudeAndLongitudeOne,
-map: map
-});
- 
-var latitudeAndLongitudeTwo = new google.maps.LatLng('57.77828', '14.17200');
- 
-var markerOne = new google.maps.Marker({
-position: latitudeAndLongitudeTwo,
-map: map
-});
-
-mapBounds.extend(latitudeAndLongitudeOne);
-mapBounds.extend(latitudeAndLongitudeTwo);
- 
-map.fitBounds(mapBounds);
- }
-		</script>
 <style>
 
     .cm-text-uppercase { text-transform: uppercase; }
@@ -263,6 +216,17 @@ map.fitBounds(mapBounds);
         </div>
         
         
+		<script type="text/javascript">
+		var sitepos = {lat: -33.890542, lng: 151.274856};
+		var map = new google.maps.Map(document.getElementById('map_canvas'), {
+			center: sitepos,
+			zoom: 8
+		  });
+		var marker = new google.maps.Marker({
+			position: sitepos,
+			map: map
+		});
+		</script>
     </body>
 
 <!-- Mirrored from pagekit.com/demo/theme-one/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 11 Jun 2016 11:29:00 GMT -->
